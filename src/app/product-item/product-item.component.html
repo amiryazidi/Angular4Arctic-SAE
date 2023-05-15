@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://static.bershka.net/4/photos2/2022/I/0/2/p/2766/777/800//01/2766777800_2_4_3.jpg?t=1660741431395" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{p.title}}</h5>
+        <p class="card-text">Price : {{p.price}}</p>
+        <p class="card-text">Quantity : {{p.quantity}}</p>
+        <p class="card-text">like : {{p.like}}</p>
+
+        <!--<button class="btn btn-primary" (click)="buy(i)" [disabled]="p.quantity==0">buy</button>-->
+        <button class="btn btn-success" (click)="like()">Like</button>
+        <button class="btn btn-success" [routerLink]="['/product',p.id]">Details</button>
+        <button class="btn btn-danger" (click)="delete(p.id)">Delete</button>
+    </div>
+</div>

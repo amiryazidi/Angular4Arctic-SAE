@@ -1,0 +1,14 @@
+<h1 class="title">
+    {{title}}</h1>
+<div class="row">
+    <button class="alert alert-secondary" role="alert" (click)="getAlertStock()"> Alert</button>
+    <h1>{{alertStock}}</h1>
+</div>
+<input type="number" name="price" [(ngModel)]="priceMax">
+<div class="row">
+    <div class="col-md-4" *ngFor="let p of listProduct , let i=index">
+        <div *ngIf="p.price<priceMax || priceMax==null">
+            <app-product-item [p]=p (likeEvent)="like($event)" (DeleteProduct)="delete($event)"></app-product-item>
+        </div>
+    </div>
+</div>

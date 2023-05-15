@@ -1,0 +1,36 @@
+<form #f="ngForm">
+    <div class="form-group ">
+        <label>Id</label>
+        <input type="number " class="form-control " name="id " placeholder="Enter id " [(ngModel)]="product.id " required #id="ngModel">
+        <div class="alert alert-danger" *ngIf="id.invalid && id.touched">
+            <div> id is required</div>
+        </div>
+    </div>
+    <div class=" form-group ">
+        <label>Title</label>
+        <input type="text " class="form-control " name="title " placeholder="Enter title " [(ngModel)]="product.title " required minlength="3" #title="ngModel">
+        <div class="alert alert-danger " *ngIf="title.invalid && title.touched">
+            <div *ngIf="title.errors?.['required']"> title is required</div>
+            <div *ngIf="title.errors?.['minlength']"> title min length 3 caracteres</div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label>Quantity</label>
+        <input type="number" class="form-control " name="quantity " placeholder="Enter quantity " [(ngModel)]="product.quantity " required min="100" #quantity="ngModel">
+        <div class="alert alert-danger" *ngIf="quantity.invalid && quantity.touched">
+            <div *ngIf="quantity.errors?.['required']"> quantity is required</div>
+            <div *ngIf="quantity.errors?.['min'] "> La quantité doit être supérieur à 0 et contient 3 chiffres</div>
+        </div>
+    </div>
+    <div class="form-group ">
+        <label>price</label>
+        <input type="number" class="form-control " name="price " placeholder="Enter price " [(ngModel)]="product.price " required min="0 " #price="ngModel">
+        <div class="alert alert-danger" *ngIf="price.invalid && price.touched">
+            <div *ngIf="price.errors?.['required'] "> price is required</div>
+            <div *ngIf="price.errors?.['min']"> La quantité doit être positive</div>
+        </div>
+    </div>
+    <button type="submit " class="btn btn-primary " [disabled]="f.invalid" (click)=" ajouter()">Submit</button>
+</form>
+
+{{product.id}} {{product.title}} {{product.quantity}} {{product.price}}

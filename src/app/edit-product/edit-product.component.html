@@ -1,0 +1,18 @@
+<form>
+
+    <label>ID du produit:</label>
+    <input [(ngModel)]="product.id" name="title" />
+
+    <label>Nom du produit:</label>
+    <input [(ngModel)]="product.title" name="title" />
+
+    <label>Prix:</label>
+    <input [(ngModel)]="product.price" name="price" />
+
+    <label>Quantité:</label>
+    <input [(ngModel)]="product.quantity" name="quantity" />
+
+    <!-- Ajoutez d'autres champs pour les autres propriétés du produit -->
+
+    <button (click)="updateProduct()">Mettre à jour</button>
+</form>

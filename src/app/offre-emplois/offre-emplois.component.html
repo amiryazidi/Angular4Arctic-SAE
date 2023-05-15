@@ -1,0 +1,24 @@
+<p>offresemplois works!</p>
+
+
+<div class="container">
+    <div class="row">
+        <input type="text" name="search" [(ngModel)]="searchtext">
+        <button type="button" (click)="search()">Search</button>
+
+
+        <button type="button" (click)="bilan()">bilan</button>
+        <div> {{nombre}}</div>
+        <div class="col-md-4" *ngFor="let o of offresemplois">
+            <div class="card" style="width: 18rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">{{o.reference|uppercase}}</h5>
+                    <p class="card-text"><strong>titre :</strong>{{o.titre}}</p>
+                    <p class="card-text"><strong>entreprise :</strong>{{o.entreprise}}</p>
+                    <button class="btn btn-primary" [disabled]="o.etat == false">Postuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
